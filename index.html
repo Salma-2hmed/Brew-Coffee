@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Brew Haven — premium artisanal coffee. View our menu, visit our shop, or get in touch.">
+  <title>Brew Haven — Premium Coffee Shop</title>
+
+  <!-- Bootstrap & Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #f4efe9;
+      --cream: #fffaf3;
+      --brown: #3b2f2f;
+      --choc: #6f4e37;
+      --gold: #d1a35f;
+      --muted: #7a5a46;
+      --card-shadow: 0 6px 18px rgba(40,30,25,0.08);
+      --radius: 12px;
+    }
+
+    /* Reset-ish */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Roboto',sans-serif;
+      background:var(--bg);
+      color:var(--brown);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      scroll-behavior:smooth;
+    }
+
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;color:var(--brown);margin-bottom:.6rem}
+
+    /* NAVBAR */
+    .navbar{
+      background:linear-gradient(180deg, rgba(59,47,47,0.95), rgba(59,47,47,0.95));
+      backdrop-filter: blur(6px);
+    }
+    .navbar-brand{color:var(--gold)!important;font-weight:700}
+    .nav-link{color:var(--cream)!important}
+    .nav-link:hover{color:var(--gold)!important}
+
+    /* HERO */
+    .hero{
+      min-height:74vh;
+      display:flex;align-items:center;justify-content:center;
+      background-image: linear-gradient(0deg, rgba(30,20,10,0.55), rgba(30,20,10,0.25)), url('https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1950&q=80');
+      background-size:cover;background-position:center;position:relative;color:var(--cream);
+    }
+    .hero .card-cta{background:rgba(255,250,243,0.05);border:1px solid rgba(255,250,243,0.06);padding:2rem;border-radius:14px}
+    .hero h1{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:0.5px}
+    .hero p.lead{font-size:1.1rem;color:rgba(245,231,211,0.95)}
+
+    /* MAIN CONTAINER */
+    .section{padding:4.5rem 0}
+
+    /* ABOUT */
+    #about{background:var(--cream);border-top:4px solid var(--gold);border-bottom:4px solid var(--gold)}
+
+    /* MENU GRID — make images equal */
+    .menu-grid .card{border-radius:var(--radius);overflow:hidden;box-shadow:var(--card-shadow);height:100%;display:flex;flex-direction:column}
+    .menu-grid .card-img-top{
+      width:100%;
+      height:220px; /* fixed height for visual parity */
+      object-fit:cover;
+      object-position:center;
+      display:block;
+    }
+    .menu-grid .card-body{flex:1;display:flex;flex-direction:column;justify-content:space-between;padding:1.1rem}
+
+    .price-badge{
+      display:inline-block;padding:.25rem .6rem;border-radius:999px;background:var(--gold);color:var(--brown);font-weight:600;font-size:.95rem;margin-top:.5rem}
+
+    /* Testimonials */
+    .testimonial{background:linear-gradient(180deg,#fffafa,#fbf7f3);padding:1rem;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+
+    /* Contact */
+    form .form-control:focus{box-shadow:0 0 0 3px rgba(209,163,95,0.12);border-color:var(--choc)}
+
+    /* FOOTER */
+    footer{background:var(--brown);color:var(--cream);padding:2.5rem 0}
+    .social svg{width:20px;height:20px;vertical-align:middle}
+
+    /* Responsive tweaks */
+    @media (max-width:992px){.menu-grid .card-img-top{height:180px}}
+    @media (max-width:576px){.hero{min-height:60vh}.menu-grid .card-img-top{height:150px}}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="#home">Brew Haven</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero" role="banner">
+    <div class="container text-center">
+      <div class="mx-auto" style="max-width:900px">
+        <div class="card-cta">
+          <h1><span style="color:var(--gold)">Welcome to Brew Haven</span></h1>
+          <p class="lead">Artisanal coffee, thoughtfully sourced and skillfully brewed — a cozy place to pause.</p>
+          <div class="mt-3">
+            <a href="#menu" class="btn btn-lg" style="background:var(--choc);color:#fff;border-radius:10px;padding:10px 20px">View Menu</a>
+            <a href="#contact" class="btn btn-outline-light btn-lg" style="margin-left:.75rem;border-radius:10px">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <h2>About Brew Haven</h2>
+          <p>We select single-origin beans and roast them to highlight each region's unique character. Our baristas are trained in classic and modern brewing methods to bring you consistently great cups.</p>
+          <p class="mb-0"><strong>Opening Hours:</strong> Mon–Sat 7:00 — 21:00 • Sun 8:00 — 18:00</p>
+        </div>
+        <div class="col-lg-6">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=80" alt="Coffee beans and equipment" class="img-fluid rounded shadow-sm" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="section">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="m-0">Our Menu</h2>
+        <small class="text-muted">Prices in EGP • Crafted fresh</small>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4 menu-grid">
+        <!-- Card template -->
+        <div class="col">
+          <article class="card h-100" aria-labelledby="espresso-title">
+            <img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZXNwcmVzc28lMjBjb2ZmZWV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600" loading="lazy" class="card-img-top" alt="Espresso shot">
+            <div class="card-body text-center">
+              <div>
+                <h5 id="espresso-title" class="card-title">Espresso</h5>
+                <p class="card-text text-muted mb-2">Rich & concentrated single-shot espresso.</p>
+              </div>
+              <div>
+                <span class="price-badge">30 EGP</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="card h-100" aria-labelledby="latte-title">
+            <img src="https://plus.unsplash.com/premium_photo-1669905375117-e3347bb2b4d2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNhZmZlZSUyMGxhdHRlZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600" loading="lazy" class="card-img-top" alt="Caffe Latte">
+            <div class="card-body text-center">
+              <div>
+                <h5 id="latte-title" class="card-title">Caffe Latte</h5>
+                <p class="card-text text-muted mb-2">Silky steamed milk with a smooth espresso base.</p>
+              </div>
+              <div>
+                <span class="price-badge">50 EGP</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="card h-100" aria-labelledby="capp-title">
+            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80" loading="lazy" class="card-img-top" alt="Cappuccino">
+            <div class="card-body text-center">
+              <div>
+                <h5 id="capp-title" class="card-title">Cappuccino</h5>
+                <p class="card-text text-muted mb-2">Espresso topped with thick, velvety foam.</p>
+              </div>
+              <div>
+                <span class="price-badge">40 EGP</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="card h-100" aria-labelledby="mocha-title">
+            <img src=https://images.unsplash.com/photo-1632845407875-10b4d85e6bf8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bW9jaGF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600" loading="lazy" class="card-img-top" alt="Mocha">
+            <div class="card-body text-center">
+              <div>
+                <h5 id="mocha-title" class="card-title">Mocha</h5>
+                <p class="card-text text-muted mb-2">Chocolatey espresso treat with steamed milk.</p>
+              </div>
+              <div>
+                <span class="price-badge">55 EGP</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="card h-100" aria-labelledby="iced-title">
+            <img src="https://images.unsplash.com/photo-1520031607889-97ba0c7190ff?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fGljZWQlMjBjb2ZmZWV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600" loading="lazy" class="card-img-top" alt="Iced Coffee">
+            <div class="card-body text-center">
+              <div>
+                <h5 id="iced-title" class="card-title">Iced Coffee</h5>
+                <p class="card-text text-muted mb-2">Cold-brewed or chilled espresso — your pick.</p>
+              </div>
+              <div>
+                <span class="price-badge">45 EGP</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="card h-100" aria-labelledby="caramel-title">
+            <img src="https://media.istockphoto.com/id/2191051012/photo/ready-for-drink-mocha-ice-coffee-serving-with-chocolate-sauce-and-put-on-white-background-and.webp?a=1&b=1&s=612x612&w=0&k=20&c=peBIJqVd8xD2bJ3PCT9SRwdbpjl2HrehaNjhkNbZWC0=" loading="lazy" class="card-img-top" alt="Caramel Macchiato">
+            <div class="card-body text-center">
+              <div>
+                <h5 id="caramel-title" class="card-title">Caramel Mecchiato</h5>
+                <p class="card-text text-muted mb-2">Espresso, steamed milk, and caramel drizzle.</p>
+              </div>
+              <div>
+                <span class="price-badge">60 EGP</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section bg-light">
+    <div class="container">
+      <h2 class="mb-4 text-center">What Our Customers Say</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial h-100">
+            <p class="mb-2">"Best cup I've had in years — deep, balanced flavor every time."</p>
+            <small class="d-block text-muted">— Sarah M.</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial h-100">
+            <p class="mb-2">"Cozy atmosphere and knowledgeable baristas. Highly recommend."</p>
+            <small class="d-block text-muted">— Omar R.</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial h-100">
+            <p class="mb-2">"Perfect spot to work or meet — great Wi‑Fi and coffee."</p>
+            <small class="d-block text-muted">— Lina A.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="text-center mb-4">Contact & Reservations</h2>
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <h5>Visit Us</h5>
+          <p class="mb-1">123 Coffee St, Brew City</p>
+          <p class="mb-1">Phone: <a href="tel:+201234567890">(+20) 1234 567 890</a></p>
+          <p class="mb-3">Email: <a href="mailto:info@brewhaven.com">info@brewhaven.com</a></p>
+
+          <h6 class="mt-3">Opening Hours</h6>
+          <ul class="list-unstyled small text-muted">
+            <li>Mon–Sat: 07:00 — 21:00</li>
+            <li>Sun: 08:00 — 18:00</li>
+          </ul>
+
+          <div class="mt-3 social">
+            <a href="#" class="me-3 text-decoration-none text-reset" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.2A3.8 3.8 0 1 0 15.8 12 3.8 3.8 0 0 0 12 8.2zM18.5 6.2a1.1 1.1 0 1 0 1.1 1.1 1.1 1.1 0 0 0-1.1-1.1z"/></svg></a>
+            <a href="#" class="me-3 text-decoration-none text-reset" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8.1V12h2.4V9.6c0-2.4 1.4-3.8 3.6-3.8 1 0 2 .08 2 .08v2.2h-1.1c-1.1 0-1.4.66-1.4 1.3V12h2.5l-.4 2.9h-2.1v7A10 10 0 0 0 22 12z"/></svg></a>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <form id="contactForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" required aria-required="true">
+                <div class="invalid-feedback">Please enter your name.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" required>
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+              <div class="col-12">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="4" required></textarea>
+                <div class="invalid-feedback">Please write a message.</div>
+              </div>
+              <div class="col-12 text-end">
+                <button type="submit" class="btn" style="background:var(--choc);color:#fff;border-radius:10px">Send Message</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <strong>Brew Haven</strong> &middot; Artisanal coffee
+        </div>
+        <div class="col-md-6 text-center text-md-end small text-muted">
+          &copy; <span id="year"></span> Brew Haven. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Collapse navbar on link click (mobile)
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link =>{
+      link.addEventListener('click', ()=>{
+        const bsCollapse = new bootstrap.Collapse(document.getElementById('navMenu'), {toggle:false});
+        if (window.getComputedStyle(document.querySelector('.navbar-toggler')).display !== 'none') bsCollapse.hide();
+      });
+    });
+
+    // Basic bootstrap form validation
+    (function(){
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', function(e){
+        if (!form.checkValidity()){
+          e.preventDefault(); e.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    })();
+
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll('section[id], header[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function onScroll(){
+      const scrollPos = window.scrollY + 120;
+      sections.forEach(sec =>{
+        if (sec.offsetTop <= scrollPos && (sec.offsetTop + sec.offsetHeight) > scrollPos){
+          navLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.nav-link[href*="#${sec.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
+</body>
+</html>
